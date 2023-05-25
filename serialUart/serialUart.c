@@ -41,13 +41,13 @@ void enviarPalabra(uint8_t cadena[])
 
 void existeCaracter()
 {
-    while (!(USART1->SR & (1<<5)))
-    leerCaracter();
+    while (!(USART1->SR & (1<<5)));
 }
 
 void leerCaracter()
 {
     while (!(USART1->SR & (1<<5)))
+    GPIOC->ODR |= (1<<13);
     return (USART1->DR & 0xF);
 }
 
