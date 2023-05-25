@@ -3,11 +3,15 @@
 
 void inicializarUart(void);
 void enviarCaracter(uint8_t caracter);
-void nuevaLinea(void);
+void nuevaLinea();
 void enviarPalabra(uint8_t cadena[]);
+
+void existeCaracter(void);
+void leerCaracter(void);
 
 /*
 Desarrollar el prototipo de las funciones: 
 existeCaracter()
 leerCaracter()
 */
+

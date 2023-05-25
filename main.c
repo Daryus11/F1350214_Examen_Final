@@ -6,5 +6,8 @@ int main(void)
 	/*
 	Desarrollar el flujo principal del programa utilizando las librerias motorDriver y serialUart
 	*/
-	while(1);
+	while(1)
+	{
+		
+	}
 }

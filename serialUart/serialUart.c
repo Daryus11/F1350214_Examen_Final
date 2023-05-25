@@ -39,6 +39,18 @@ void enviarPalabra(uint8_t cadena[])
     nuevaLinea();
 }
 
+void existeCaracter()
+{
+    while (!(USART1->SR & (1<<5)))
+    leerCaracter();
+}
+
+void leerCaracter()
+{
+    while (!(USART1->SR & (1<<5)))
+    return (USART1->DR & 0xF);
+}
+
 /*
 Implementar las funciones: 
 existeCaracter()
