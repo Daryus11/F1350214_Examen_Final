@@ -1,45 +1,45 @@
 #include <stdint.h>
 #include "incFiles/stm32f103x6.h"
+#include "motorDriver/motorDriver.h"
+#include "serialUart/serialUart.h"
 
 int main(void)
 {
 	/*
 	Desarrollar el flujo principal del programa utilizando las librerias motorDriver y serialUart
-	*********************************************************************************************
-	Definimos caracteres leidos por UART
-	'W' = avanzar (57)
-	'S' = retroceder (53)
-	'A'	= girarDerecha (41)
-	'D' = girarIzquierda (44)
 	*/
 
 	while(1)
 	{
-		GPIOC->ODR &= ~(0xFF);
-		GPIOC->ODR |= (0<<13);
-		inicializarUart();
 		existeCaracter();
 		leerCaracter();
-		iniciarModulo();
-
-		switch (USART1->DR)
+		uint8_t caractRx = USART1->DR & 0xFF;
+		switch (caractRx)
 		{
-		case (0x57):
-		avanzar();
+		case ('a'):
+		avanzar(1);
 			break;
 		
-		case (0x53):
-		retroceder();
+		case ('w'):
+		avanzar(2);
 			break;
 		
-		case (0x41):
+		case ('b'):
+		retroceder(1);
+			break;
+
+		case ('s'):
+		retroceder(2);
+			break;
+		
+		case ('q'):
 		girarDerecha();
 			break;
 		
-		case (0x44):
+		case ('e'):
 		girarIzquierda();
 			break;
-		
+
 		default:
 			break;
 		}

@@ -6,8 +6,8 @@ void enviarCaracter(uint8_t caracter);
 void nuevaLinea();
 void enviarPalabra(uint8_t cadena[]);
 
-void existeCaracter(void);
-void leerCaracter(void);
+void existeCaracter();
+void leerCaracter();
 
 /*
 Desarrollar el prototipo de las funciones: 

@@ -1,9 +1,9 @@
 #include <stdint.h>
 #include "../incFiles/stm32f103x6.h"
 
-void iniciarModulo();
-void avanzar();
-void retroceder();
+void iniciarModulo(void);
+void avanzar(uint8_t vel);
+void retroceder(uint8_t vel);
 void girarDerecha();
 void girarIzquierda();
 /*
